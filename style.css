@@ -1,0 +1,273 @@
+/* Reset de Margens e Box-Sizing para consistência */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Paleta de Cores Alinhada ao Tema: Tons de Verde, Terra e Cinza Suave */
+:root {
+    --primary-color: #1e5631;    /* Verde Floresta Escuro */
+    --secondary-color: #4c9a2a;  /* Verde Folha Ativo */
+    --accent-color: #a47c48;     /* Tom de Terra/Solo */
+    --bg-light: #f4f7f5;         /* Fundo Claro Confortável */
+    --text-dark: #2d3732;        /* Texto de Alto Contraste */
+    --white: #ffffff;
+    --border-color: #d1dcd6;
+    --success-bg: #e8f5e9;
+    --warning-bg: #fff3e0;
+    --danger-bg: #ffebee;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.main-header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 40px 0;
+    text-align: center;
+    border-bottom: 5px solid var(--accent-color);
+}
+
+.badge-tema {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.main-header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.main-header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Conteúdo */
+.main-content {
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+.intro-card {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+    border-left: 5px solid var(--secondary-color);
+}
+
+.intro-card h2 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+/* Grid Layout Alternativo para evitar quebras */
+.dashboard-grid {
+    display: block;
+}
+
+.card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    margin-bottom: 25px;
+    border: 1px solid var(--border-color);
+}
+
+/* Ajuste de Layout Linear para Telas Maiores */
+@media(min-width: 768px) {
+    .dashboard-grid {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
+    .card {
+        display: table-cell;
+        vertical-align: top;
+        width: 50%;
+    }
+    .form-section {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    .result-section {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-left: none;
+    }
+}
+
+.card h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    border-bottom: 2px solid var(--bg-light);
+    padding-bottom: 10px;
+}
+
+/* Formulários */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1rem;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus, .form-group select:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    background-color: var(--white);
+}
+
+.btn-submit {
+    width: 100%;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border: none;
+    padding: 14px;
+    font-size: 1.05rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-submit:hover {
+    background-color: var(--primary-color);
+}
+
+/* Seção de Resultados */
+.placeholder-text {
+    color: #718096;
+    text-align: center;
+    padding: 40px 0;
+    font-style: italic;
+}
+
+.hidden {
+    display: none;
+}
+
+.score-container {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.score-label {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+}
+
+.score-badge {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-top: 5px;
+}
+
+.status-box {
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 25px;
+    border-left: 4px solid transparent;
+}
+
+.status-box h4 {
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+/* Estados Dinâmicos controlados por Classes */
+.status-excelente {
+    background-color: var(--success-bg);
+    border-left-color: #2e7d32;
+    color: #1b5e20;
+}
+
+.status-moderado {
+    background-color: var(--warning-bg);
+    border-left-color: #ef6c00;
+    color: #e65100;
+}
+
+.status-critico {
+    background-color: var(--danger-bg);
+    border-left-color: #c62828;
+    color: #b71c1c;
+}
+
+.recommendations h4 {
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: var(--primary-color);
+}
+
+.recommendations ul {
+    list-style-type: none;
+}
+
+.recommendations li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.recommendations li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+/* Rodapé */
+.main-footer {
+    background-color: var(--text-dark);
+    color: #a0aec0;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.85rem;
+    margin-top: 40px;
+}
